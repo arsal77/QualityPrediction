@@ -1,11 +1,19 @@
-FROM python:3.13.2
+FROM python:3.12-slim
+WORKDIR /app
 
-WORKDIR /code
 
 COPY requirements.txt ./requirements.txt
 
 RUN pip install --no-cache-dir -r ./requirements.txt
 
+
+# Copy the model to a consistent location
+COPY model_artifacts ./model_artifacts
+
+RUN pip install --no-cache-dir -r ./model_artifacts/requirements.txt
+
+
+# Copy the app code
 COPY app ./app
 
-CMD ["fastapi", "run", "./app/main.py", "--port", "80"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
