@@ -48,5 +48,4 @@ ENV/
 
 # --- Project-specific ignores ---
 mlruns/
-model_artifacts/
 74*/

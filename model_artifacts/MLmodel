@@ -1,0 +1,37 @@
+artifact_path: file:///workspaces/QualityPrediction/mlruns/742523656056265699/models/m-9084f8f822b44492b928486b469ea7d5/artifacts
+flavors:
+  python_function:
+    config:
+      device: null
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pytorch
+    pickle_module_name: mlflow.pytorch.pickle_module
+    python_version: 3.12.1
+  pytorch:
+    code: null
+    model_data: data
+    pytorch_version: 2.7.1+cpu
+is_signature_from_type_hint: false
+mlflow_version: 3.2.0
+model_id: m-9084f8f822b44492b928486b469ea7d5
+model_size_bytes: 31916
+model_uuid: m-9084f8f822b44492b928486b469ea7d5
+prompts: null
+run_id: 0be5ae451ab94aa2ad1766e08bfd9f68
+signature:
+  inputs: '[{"type": "float", "name": "fixed acidity", "required": true}, {"type":
+    "float", "name": "volatile acidity", "required": true}, {"type": "float", "name":
+    "citric acid", "required": true}, {"type": "float", "name": "residual sugar",
+    "required": true}, {"type": "float", "name": "chlorides", "required": true}, {"type":
+    "float", "name": "free sulfur dioxide", "required": true}, {"type": "float", "name":
+    "total sulfur dioxide", "required": true}, {"type": "float", "name": "density",
+    "required": true}, {"type": "float", "name": "pH", "required": true}, {"type":
+    "float", "name": "sulphates", "required": true}, {"type": "float", "name": "alcohol",
+    "required": true}]'
+  outputs: '[{"type": "float", "name": "quality", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-08-18 17:16:03.945910'
