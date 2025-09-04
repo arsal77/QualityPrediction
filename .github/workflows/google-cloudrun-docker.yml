@@ -37,7 +37,8 @@ on:
 env:
   GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   GCP_ARTIFACT_REGISTRY: us-west1-docker.pkg.dev
-  GCP_SERVICE_NAME: quality-docker-repo ## repo name
+  GCP_ARTIFACT_REPO: quality-docker-repo ## repo name
+  GCP_SERVICE_NAME: quality-api-service
   GCP_REGION: us-west1
 
 jobs:
@@ -68,7 +69,7 @@ jobs:
 
       - name: Build and Push Container
         run: |
-          DOCKER_TAG="${{ env.GCP_ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_SERVICE_NAME }}:${{ github.sha }}"
+          DOCKER_TAG="${{ env.GCP_ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_ARTIFACT_REPO }}:${{ github.sha }}"
           docker build --tag "${DOCKER_TAG}" .
           docker push "${DOCKER_TAG}"
 
@@ -78,7 +79,7 @@ jobs:
         with:
           service: ${{ env.GCP_SERVICE_NAME }}
           region: ${{ env.GCP_REGION }}
-          image: ${{ env.GCP_ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_SERVICE_NAME }}:${{ github.sha }}
+          image: ${{ env.GCP_ARTIFACT_REGISTRY }}/${{ env.GCP_PROJECT_ID }}/${{ env.GCP_ARTIFACT_REPO }}:${{ github.sha }}
 
       - name: Show output
         run: echo "Deployed at ${{ steps.deploy.outputs.url }}"
