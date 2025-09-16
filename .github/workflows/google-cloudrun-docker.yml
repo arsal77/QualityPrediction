@@ -64,7 +64,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: oauth2accesstoken
-          password: ${{ steps.auth.outputs.access_token }}
+          password: ${{ steps.auth.outputs.auth_token }}
           registry: ${{ env.GCP_ARTIFACT_REGISTRY }}
 
       - name: Build and Push Container
