@@ -68,20 +68,20 @@ jobs:
           password: ${{ steps.auth.outputs.auth_token }}
           registry: ${{ env.GCP_ARTIFACT_REGISTRY }}
 
-                # --- ADD THIS NEW DIAGNOSTIC STEP ---
-      # - name: 'Debug: Check Authenticated Identity and Permissions'
-      #   run: |
-      #     echo "--- Checking authenticated identity ---"
-      #     gcloud auth list
+                --- ADD THIS NEW DIAGNOSTIC STEP ---
+      - name: 'Debug: Check Authenticated Identity and Permissions'
+        run: |
+          echo "--- Checking authenticated identity ---"
+          gcloud auth list
           
-      #     echo "\n--- Checking permissions on the Artifact Registry repository ---"
-      #     # This command will try to get the IAM policy for your specific repo.
-      #     # If the identity has permissions, it will succeed. If not, it will fail.
-      #     gcloud artifacts repositories get-iam-policy \
-      #       ${{ env.GCP_ARTIFACT_REPO }} \
-      #       --location=${{ env.GCP_REGION }} \
-      #       --project=${{ env.GCP_PROJECT_ID }}
-      # --- END OF DIAGNOSTIC STEP ---
+          echo "\n--- Checking permissions on the Artifact Registry repository ---"
+          # This command will try to get the IAM policy for your specific repo.
+          # If the identity has permissions, it will succeed. If not, it will fail.
+          gcloud artifacts repositories get-iam-policy \
+            ${{ env.GCP_ARTIFACT_REPO }} \
+            --location=${{ env.GCP_REGION }} \
+            --project=${{ env.GCP_PROJECT_ID }}
+      --- END OF DIAGNOSTIC STEP ---
 
       - name: Build and Push Container
         run: |
