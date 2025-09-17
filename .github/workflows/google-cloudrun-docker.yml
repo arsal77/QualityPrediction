@@ -68,7 +68,7 @@ jobs:
           password: ${{ steps.auth.outputs.auth_token }}
           registry: ${{ env.GCP_ARTIFACT_REGISTRY }}
 
-                --- ADD THIS NEW DIAGNOSTIC STEP ---
+   #             --- ADD THIS NEW DIAGNOSTIC STEP ---
       - name: 'Debug: Check Authenticated Identity and Permissions'
         run: |
           echo "--- Checking authenticated identity ---"
@@ -81,7 +81,7 @@ jobs:
             ${{ env.GCP_ARTIFACT_REPO }} \
             --location=${{ env.GCP_REGION }} \
             --project=${{ env.GCP_PROJECT_ID }}
-      --- END OF DIAGNOSTIC STEP ---
+   #   --- END OF DIAGNOSTIC STEP ---
 
       - name: Build and Push Container
         run: |
