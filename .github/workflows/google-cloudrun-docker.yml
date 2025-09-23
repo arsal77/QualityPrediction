@@ -58,8 +58,11 @@ jobs:
         name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
-          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+         # workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+         # service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+           workload_identity_provider: 'projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_ID'
+           service_account: 'github-actions-deployer@crack-mix-468515-e1.iam.gserviceaccount.com'
+         
 
       - name: Docker Auth
         uses: docker/login-action@v3
