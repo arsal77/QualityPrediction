@@ -60,7 +60,7 @@ jobs:
         with:
          # workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
          # service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-           workload_identity_provider: 'projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_ID'
+           workload_identity_provider: 'projects/302764903160/locations/global/workloadIdentityPools/github-pool/providers/github-actions'
            service_account: 'github-actions-deployer@crack-mix-468515-e1.iam.gserviceaccount.com'
          
 
