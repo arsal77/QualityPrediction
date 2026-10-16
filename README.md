@@ -2,7 +2,6 @@
 
 A REST API for a small Twitter-like service, written in TypeScript with Express and PostgreSQL. Users can sign up, log in, post short messages ("chirps"), and upgrade to a premium tier through a payment-provider webhook.
 
-Built while following Boot.dev's backend course on HTTP servers in TypeScript.
 
 ## Features
 
