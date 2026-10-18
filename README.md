@@ -38,7 +38,20 @@ The data is split with a fixed seed into 75% for training and validation and 25%
 
 ## Results
 
-The best of the 15 trials reached a **validation MSE of 0.523 (RMSE ≈ 0.72 quality points)**. For reference, the standard deviation of the quality score is 0.89, so always predicting the average would give an RMSE of about 0.89.
+The best of the 15 trials reached a **validation MSE of 0.523 (RMSE ≈ 0.72 quality points)**.
+
+On the held-out test set (1,224 wines the model never saw), it reaches:
+
+| Metric | Model | Baseline (always predict the average) |
+|---|---|---|
+| RMSE | **0.689** | 0.845 |
+| MAE | **0.537** | – |
+
+That's about 18% lower error than the baseline.
+
+![Predicted vs actual quality on the test set](images/pred_vs_actual.png)
+
+The median prediction rises with the true score, so the model ranks wines correctly in general. Predictions for very low and very high quality wines are pulled toward the middle, because those wines are rare in the data (most score 5–7). Run `python evaluate.py` to reproduce these numbers and the plot.
 
 ## Running the API
 
